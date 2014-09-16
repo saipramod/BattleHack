@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Need Name</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="stylesheets/bootstrap.css" rel="stylesheet">
+    <link href="stylesheets/art.css" rel="stylesheet">
+
+    <!-- Add custom CSS here -->
+
+</head>
+
+<body background="images/background2.jpeg">
+<div id="top2">
+<a class="navbar-brand" href="home" style="border-right:1px solid lightgray;">NEED NAME</a>
+<div class="collapse navbar-collapse navbar-default navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="about">About</a>
+                    </li>
+                    <li class="active"><a href="upload">Upload</a>
+                    </li>
+                    <li><a href="gallery">Gallery</a>
+                    </li>
+                </ul>
+            </div>
+            </div>
+     <!-- /.container -->
+<br><br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 ">
+            <div class="thumbnail jumbotron">
+                
+                <div class="caption">
+                    <h3>Upload an Image</h3> <hr/>
+                    <p>
+                        Use the form below to upload an image
+
+Have questions about how this works? 
+                     Write to us a@b.com </p>
+                </div>
+<div class="container">
+        <div id="fillingform" class="row">
+            
+            <form class="form-horizontal" action="addToDB" method="post">
+                <div class="form-group">
+                    <label for="name" class="col-sm-2 control-label" style="color:black">Name*</label>
+                    <div class="col-sm-6">
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Enter Name..."/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-sm-2 control-label" style="color:black">Email*</label>
+                    <div class="col-sm-6">
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter email..."/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="school" class="col-sm-2 control-label" style="color:black">School*</label>
+                    <div class="col-sm-6">
+                        <input type="text" id="school" name="school" class="form-control" placeholder="Enter school..."/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="grade" class="col-sm-2 control-label" style="color:black">Grade*</label>
+                    <div class="col-sm-6">
+                        <input type="text" id="grade" name="school" class="form-control" placeholder="Enter grade from 1-12..."/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="file" class="col-sm-2 control-label" style="color:black">Upload Image</label>
+                    <div class="input-append ">
+                        <div class="fileupload-preview thumbnail img-responsive col-sm-2" id="imagepreview"></div>
+                        <input id="photoCover" name="image" class="input-large col-sm-6" type="file">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-6">
+                        <button type="submit" id="submit" class="btn btn-primary">Upload</button>
+                        <button type="reset" id="clear" class="btn btn-default">Clear</button>
+                    </div>
+                </div>
+                
+            </form>
+            
+        </div>
+        <div id="registrationsuccess" class="col-sm-offset-2 col-sm-6 well"></div>    
+
+    </div>
+    <hr/>
+    <div id="paymentform" class="row">
+    	<div class="caption">
+    		<p> Please enter you credit card details </p>
+    	</div>
+    	<form class="form-horizontal" action="create_transaction" method="POST" id="braintree-payment-form">
+                <div class="form-group">
+                    <label for="name" class="col-sm-2 control-label" style="color:black">Card Number</label>
+                    <div class="col-sm-6">
+                        <input type="text" id="cdnumber" name="name" class="form-control"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="name" class="col-sm-2 control-label" style="color:black">CVV</label>
+                    <div class="col-sm-6">
+                        <input type="text" id="cvv" name="name" class="form-control"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="name" class="col-sm-2 control-label" style="color:black">Expiration (MM)</label>
+                    <div class="col-sm-6">
+                        <input type="text" id="mm" name="name" class="form-control"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="name" class="col-sm-2 control-label" style="color:black">Expiration (YYYY)</label>
+                    <div class="col-sm-6">
+                        <input type="text" id="yyyy" name="name" class="form-control"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-6">
+                        <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+                        <button type="reset" id="clear" class="btn btn-default">Clear</button>
+                    </div>
+                </div>
+
+        </form>
+        <div id="payment" class="col-sm-offset-2 col-sm-6 well"></div>    
+    </div>
+    
+</div>
+    <!-- JavaScript -->
+    <script src="https://js.braintreegateway.com/v1/braintree.js"></script>
+    <script src="javascripts/jquery-1.10.2.js"></script>
+    <script src="javascripts/upload.js"></script>
+    <script src="javascripts/bootstrap.js"></script>
+    <script>
+      var braintree = Braintree.create("MIIBCgKCAQEAqqjN5z5RvFypi86yjRKzQF0D2nr1V9q54SO8oxsO2LoJDwDCxN+XRy5MQRFSScvK9x/2Zj6G5zy1qfuvTvdpiMI6aQqrDT/2CXF054L5rLonSnHi4zis+spi+Mt0JLatdNgyO8KR3QvVBAbdphCYabLzLHHXckxJja0Tt0tY54a1JscvMzrsSb00VXPRXTm8hDgCaRBUX8MJ8sXMggOo+tGnEznkdd5I6ULiaIzZ+gkiDTdkQT63dks43Zm1pomXoGD6c6IPV/oMAUMpO5jlBIYP1b8uKCpKzryI5nOo26YdV9w7jONxmWONbkb0UBNjs/jXpVsZvnUmoP5SURnBUwIDAQAB");
+      braintree.onSubmitEncryptForm('braintree-payment-form');
+    </script>
+
+</body>
+
+</html>

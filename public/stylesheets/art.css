@@ -1,0 +1,12 @@
+#top2{
+	border:1px solid #9CD2FF;	
+}
+#answer{
+	font-size: 50px;
+	text-align: right;
+	font-family: 'Lato', sans-serif;
+}
+#fun{
+	float:right;
+	padding-bottom: 100px;
+}
